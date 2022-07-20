@@ -1,22 +1,22 @@
-import bodyParser from "body-parser"; // for enabling sending post request
+//import bodyParser from "body-parser"; // for enabling sending post request
 import cors from "cors"; // for handling cross origin requests
-import express from "express"; // for intialize server and routing
+import express, { Router } from "express"; // for intialize server and routing
 import mongoose from "mongoose"; // for intialize noSQL database to crease models for posts
-import postRouters from './routes/posts.js'; // import routers
+import router from './routes/posts.js'; // import routers
 
 // intialize the server
 const app = express();
 
 
-app.use(bodyParser.json({ limit: '30mb', extended: true }));  // set limit as larger images will be included
-app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
+app.use(express.json({ limit: "30mb" }));  // set limit as larger images will be included
+app.use(express.urlencoded({ extended: true, limit: "30mb" }));
 app.use(cors());
-app.use('/posts', postRouters);
+app.use('/posts', router);
 
 
 // connecting server with database mongoose (cloud atlas version)
 
-const CONNECTION_URL = 'xxxxxxxxxx';
+const CONNECTION_URL = 'xxxxxxxxxxxxxxx';
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(CONNECTION_URL, {useNewUrlParser: true , useUnifiedTopology: true})
