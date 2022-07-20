@@ -7,15 +7,16 @@ import postRouters from './routes/posts.js'; // import routers
 // intialize the server
 const app = express();
 
-app.use('/posts', postRouters);
+
 app.use(bodyParser.json({ limit: '30mb', extended: true }));  // set limit as larger images will be included
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
 app.use(cors());
+app.use('/posts', postRouters);
 
 
 // connecting server with database mongoose (cloud atlas version)
 
-const CONNECTION_URL = 'mongodb+srv://solimanmemo:solimanmemo123@cluster0.2rpt4.mongodb.net/?retryWrites=true&w=majority';
+const CONNECTION_URL = 'mongodb+srv://xxxxxxxxxxxxxxxxxx';
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(CONNECTION_URL, {useNewUrlParser: true , useUnifiedTopology: true})
