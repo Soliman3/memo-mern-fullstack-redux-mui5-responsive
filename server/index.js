@@ -16,7 +16,7 @@ app.use('/posts', router);
 
 // connecting server with database mongoose (cloud atlas version)
 
-const CONNECTION_URL = 'xxxxxxxxxxxxxxxxxxxxx';
+const CONNECTION_URL = 'xxxxxxxxxxxxxxxxxxxx';
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(CONNECTION_URL, {useNewUrlParser: true , useUnifiedTopology: true})
