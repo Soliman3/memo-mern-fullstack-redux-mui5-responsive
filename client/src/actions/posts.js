@@ -1,7 +1,6 @@
 import * as api from '../api';
 
-// Action get to fetch all memos
-
+// Get Action  to fetch all memos...
 export const getPosts = ()=>  async (dispatch)=>{
     try {
         const {data} = await api.fetchPosts();
@@ -11,7 +10,7 @@ export const getPosts = ()=>  async (dispatch)=>{
     }
 };
 
-// action post for new memo
+// Create Action...
 export const createPost = (newPost)=> async (dispatch)=>{
     try {
         const {data} = await api.createPost(newPost);
@@ -21,11 +20,32 @@ export const createPost = (newPost)=> async (dispatch)=>{
     }
 };
 
+// Update Action...
 export const updatePost =(id,post)=>async (dispatch)=>{
     try {
         const {data}= await api.updatePost(id,post);
         dispatch({type: 'UPDATE', payload: data});
     } catch (error) {
-        console.log(error.message);
+        console.log(error);
     }
 };
+
+// Delete Action...
+export const deletePost = (id)=> async (dispatch)=>{
+    try {
+        await api.deletePost(id);
+        dispatch({type: 'DELETE', payload: id});
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+// Like Action...
+export const likePost = (id)=>async (dispatch)=>{
+    try {
+        const {data}= await api.likePost(id);
+        dispatch({type: 'LIKE', payload: data})
+    } catch (error) {
+        console.log(error)
+    }
+}
