@@ -5,6 +5,7 @@ import Posts from "./components/Posts/Posts";
 import { useDispatch } from 'react-redux';
 import { getPosts } from './actions/posts';
 import SearchAppBar from "./components/Header/Header";
+import './styles.css';
 
 
 function App() {
@@ -18,13 +19,13 @@ function App() {
       <SearchAppBar className="AppBar" />
       <br />
       <Grow in>
-        <Container>
-          <Grid container justify='space-between' alignItems='stretch' spacing={3}>
-            <Grid item xs={12} sm={8}>
+        <Container >
+          <Grid container  justify='space-between' alignItems='stretch' spacing={3} >
+            <Grid item xs={12} sm={8} >
               <Posts setCurrentId={setCurrentId}/>
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Form currentId={currentId} setCurrentId={setCurrentId}/>
+              <Form currentId={currentId} setCurrentId={setCurrentId} />
             </Grid>
           </Grid>
         </Container>

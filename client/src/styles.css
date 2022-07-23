@@ -9,6 +9,9 @@
 .heading {
   color: rgba(0,183,255, 1);
 }
+.mainContainer{
+  flex-direction: column;
+}
 .image {
   margin-left: 15px;
   justify-content: left;
